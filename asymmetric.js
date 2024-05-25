@@ -15,13 +15,15 @@ const { privateKey, publicKey } = generateKeyPairSync('rsa', {
 });
 
 
+console.log(publicKey);
+var secretMessage="gamu";
 const encryptedData = publicEncrypt(
     publicKey,
     Buffer.from(secretMessage)
   );
 
 
-console.log(encryptedData.toString('hex'))
+console.log("encryptedData=",encryptedData.toString('hex'))
 
 
 const decryptedData = privateDecrypt(
@@ -29,4 +31,4 @@ const decryptedData = privateDecrypt(
     encryptedData
 );
 
-console.log(decryptedData.toString('utf-8'));
+console.log("decryptedData=",decryptedData.toString('utf-8'));
